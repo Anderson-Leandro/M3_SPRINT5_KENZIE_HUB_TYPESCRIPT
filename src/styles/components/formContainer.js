@@ -1,17 +1,10 @@
 import styled from "styled-components";
 
-export const StyledLogo = styled.h1`
-	color: var(--color-primary);
-	text-align: center;
-	font-size: 26px;
-	margin-top: 60px;
-	margin-bottom: 20px;
-`;
-
-export const StyledContainer = styled.section`
-	width: 90%;
+export const StyledFormContainer = styled.section`
+	width: 100%;
+	max-width: 500px;
 	margin: 0 auto;
-	padding: 33px 18px;
+	padding: 30px 18px;
 	display: flex;
 	flex-direction: column;
 	gap: 25px;
@@ -19,7 +12,14 @@ export const StyledContainer = styled.section`
 	background-color: var(--color-grey-3);
 	border-radius: 4px;
 
-	& > div {
+	& > form {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 25px;
+	}
+
+	& > form > div {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
