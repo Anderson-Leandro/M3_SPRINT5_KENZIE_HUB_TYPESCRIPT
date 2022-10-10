@@ -18,4 +18,9 @@ export const StyledSection = styled.section`
 			align-items: center;
 		}
 	}
+
+	.infoPage {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 `;

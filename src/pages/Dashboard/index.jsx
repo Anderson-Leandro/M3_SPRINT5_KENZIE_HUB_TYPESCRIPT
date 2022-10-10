@@ -42,7 +42,7 @@ export const Dashboard = ({ user, setUser }) => {
 			</StyledSection>
 
 			<StyledSection>
-				<StyledContainer>
+				<StyledContainer className="infoPage">
 					<StyledTitle1 color="--color-grey-0">
 						Que pena! Estamos em desenvolvimento :(
 					</StyledTitle1>

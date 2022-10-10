@@ -1,9 +1,11 @@
-.headerContainer {
-	max-width: 500px;
-	margin: 0 auto;
-}
+@media (min-width: 500px) {
+	.headerContainer {
+		max-width: 500px;
+		margin: 0 auto;
+	}
 
-.headerContainer header {
-	padding-left: 0;
-	padding-right: 0;
+	.headerContainer header {
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
