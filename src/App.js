@@ -7,21 +7,21 @@ import { Register } from "./pages/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Dashboard } from "./pages/Dashboard";
-import { useState } from "react";
+import { useContext } from "react";
+import { UserContext } from "./contexts/UserContext";
+import { Loading } from "./components/Loading";
 
 function App() {
-	const [user, setUser] = useState("");
+	const { loading } = useContext(UserContext);
 	return (
 		<div>
 			<GlobalStyle />
 			<ToastContainer />
+			{loading && <Loading />}
 			<Routes>
-				<Route path="/" element={<Login setUser={setUser} />} />
+				<Route path="/" element={<Login />} />
 				<Route path="/register" element={<Register />} />
-				<Route
-					path="/dashboard"
-					element={<Dashboard user={user} setUser={setUser} />}
-				/>
+				<Route path="/dashboard" element={<Dashboard />} />
 				<Route path="*" element={<Navigate to={"/"} />} />
 			</Routes>
 		</div>

@@ -40,7 +40,7 @@ export const StyledHeadlineItalic = styled(StyledHeadline)`
 
 export const StyledLabel = styled.label`
 	font-size: 12px;
-	line-height: 0px;
+	line-height: 12px;
 	font-weight: 400;
 	color: var(${(props) => props.color});
 `;
