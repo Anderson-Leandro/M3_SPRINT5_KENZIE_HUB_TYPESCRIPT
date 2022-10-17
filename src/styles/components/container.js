@@ -5,7 +5,8 @@ export const StyledContainer = styled.div`
 	max-width: 900px;
 	padding: 0 5%;
 	margin: 0 auto;
-	@media (min-width: 1400px) {
-		padding: 0 10%;
+
+	@media (min-width: 950px) {
+		padding: 0;
 	}
 `;

@@ -7,18 +7,15 @@ import { StyledInput } from "../../styles/components/inputs";
 import { StyledLabel, StyledTitle3 } from "../../styles/components/typography";
 import { CustomSelect2 } from "../CustomSelect2";
 import { StyledModal } from "./style";
-import * as yup from "yup";
-import { Api } from "../../services/axios";
-import { toast } from "react-toastify";
+import { TechContext } from "../../contexts/TechContext";
 
-export const Modal = ({ type, setModal, techInfo }) => {
-	const { dropDownController, toasts, setUser, setLoading } =
-		useContext(UserContext);
+export const Modal = () => {
+	const { dropDownController, toasts } = useContext(UserContext);
 
-	const modalFormSchema = yup.object().shape({
-		title: yup.string().required("Tecnologia é obrigatória"),
-		status: yup.string().required("O status da tecnologia é obrigatório"),
-	});
+	const { modalFormSchema, addTech, updateTech, deleteTech } =
+		useContext(TechContext);
+
+	const { modalType, setModal, techInfo } = useContext(TechContext);
 
 	const {
 		register,
@@ -32,51 +29,9 @@ export const Modal = ({ type, setModal, techInfo }) => {
 
 	toasts(errors);
 
-	async function addTech(techData) {
-		setLoading(true);
-		try {
-			await Api.post("/users/techs", techData);
-			setModal(false);
-			const { data } = await Api.get("/profile");
-			setUser(data);
-		} catch (error) {
-			console.error(error);
-			toast.error(error.response.data.message, { autoClose: 1500 });
-		}
-		setLoading(false);
-	}
-
-	async function updateTech(techData) {
-		setLoading(true);
-		try {
-			await Api.put(`/users/techs/${techInfo.id}`, techData);
-			setModal(false);
-			const { data } = await Api.get("/profile");
-			setUser(data);
-		} catch (error) {
-			console.error(error);
-			toast.error(error.response.data.message, { autoClose: 1500 });
-		}
-		setLoading(false);
-	}
-
-	async function deleteTech() {
-		setLoading(true);
-		try {
-			await Api.delete(`/users/techs/${techInfo.id}`);
-			const { data } = await Api.get("/profile");
-			setUser(data);
-			setModal(false);
-		} catch (error) {
-			console.error(error);
-			toast.error(error.response.data.message, { autoClose: 1500 });
-		}
-		setLoading(false);
-	}
-
 	return (
 		<StyledModal>
-			{type === "add" ? (
+			{modalType === "add" ? (
 				<div className="modalContainer">
 					<div className="modalHeader">
 						<StyledTitle3 color="--color-grey-0">

@@ -1,6 +1,7 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Header } from "../../components/Header";
 import { Modal } from "../../components/Modal";
+import { TechContext } from "../../contexts/TechContext";
 import { UserContext } from "../../contexts/UserContext";
 import { StyledButtonMedium } from "../../styles/components/buttons";
 import { StyledContainer } from "../../styles/components/container";
@@ -15,11 +16,8 @@ import { StyledSection } from "./style";
 export const Dashboard = () => {
 	const { user, setUser } = useContext(UserContext);
 
-	const [modal, setModal] = useState(false);
-
-	const [modalType, setModalType] = useState("");
-
-	const [techInfo, setTechInfo] = useState("");
+	const { modal, setModal, setModalType, setTechInfo } =
+		useContext(TechContext);
 
 	const logout = () => {
 		setUser("");
@@ -83,13 +81,7 @@ export const Dashboard = () => {
 				</StyledContainer>
 			</StyledSection>
 
-			{modal && (
-				<Modal
-					type={modalType}
-					setModal={setModal}
-					techInfo={techInfo}
-				/>
-			)}
+			{modal && <Modal />}
 		</>
 	);
 };
