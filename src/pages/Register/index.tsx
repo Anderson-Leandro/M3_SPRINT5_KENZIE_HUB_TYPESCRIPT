@@ -14,7 +14,7 @@ import { StyledFormContainer } from "../../styles/components/formContainer";
 import { StyledContainer } from "../../styles/components/container";
 import "./style.css";
 import { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext";
+import { IRegisterFormSchema, UserContext } from "../../contexts/UserContext";
 
 export const Register = () => {
 	const { apiRegister, dropDownController, registerFormSchema, toasts } =
@@ -24,7 +24,7 @@ export const Register = () => {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm({
+	} = useForm<IRegisterFormSchema>({
 		resolver: yupResolver(registerFormSchema),
 	});
 

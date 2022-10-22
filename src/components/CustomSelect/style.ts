@@ -41,18 +41,6 @@ export const StyledSelect = styled.div`
 		}
 	}
 
-	/* ::-webkit-scrollbar {
-		background-color: #1d1d1d;
-		width: 5px;
-		border-top-right-radius: 5px;
-		border-bottom-right-radius: 5px;
-	}
-
-	::-webkit-scrollbar-thumb {
-		background-color: #5b5b5b;
-		border-radius: 5px;
-	} */
-
 	.item {
 		height: 48px;
 		padding: 0px 16px;

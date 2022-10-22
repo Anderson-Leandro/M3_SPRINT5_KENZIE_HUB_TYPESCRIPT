@@ -1,6 +1,10 @@
 import styled, { css } from "styled-components";
 
-export const StyledHeader = styled.header`
+interface StyledHeaderProps {
+	children: any;
+}
+
+export const StyledHeader = styled.header<StyledHeaderProps>`
 	width: 100%;
 	max-width: 900px;
 	padding: 0 5%;

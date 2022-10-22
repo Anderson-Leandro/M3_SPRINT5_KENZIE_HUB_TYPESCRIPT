@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Header } from "../../components/Header";
 import { Modal } from "../../components/Modal";
 import { TechContext } from "../../contexts/TechContext";
-import { UserContext } from "../../contexts/UserContext";
+import { IUser, UserContext } from "../../contexts/UserContext";
 import { StyledButtonMedium } from "../../styles/components/buttons";
 import { StyledContainer } from "../../styles/components/container";
 import {
@@ -20,7 +20,7 @@ export const Dashboard = () => {
 		useContext(TechContext);
 
 	const logout = () => {
-		setUser("");
+		setUser({} as IUser);
 		localStorage.clear();
 	};
 

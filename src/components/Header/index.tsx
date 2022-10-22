@@ -1,18 +1,27 @@
 import { StyledLinkMedium } from "../../styles/components/links";
 import { StyledHeader } from "./style";
 
+interface HeaderProps {
+	buttonDesc?: string;
+	buttonPath?: string;
+	logout?: () => void;
+}
+
 export const Header = ({
-	buttonDesc = false,
+	buttonDesc = "",
 	buttonPath = "",
-	logout = false,
-}) => {
+	logout,
+}: HeaderProps) => {
 	return (
 		<>
 			{buttonDesc ? (
 				<StyledHeader>
 					<h1>Kenzie Hub</h1>
 
-					<StyledLinkMedium to={buttonPath} onClick={() => logout()}>
+					<StyledLinkMedium
+						to={buttonPath}
+						onClick={() => logout && logout()}
+					>
 						{buttonDesc}
 					</StyledLinkMedium>
 				</StyledHeader>

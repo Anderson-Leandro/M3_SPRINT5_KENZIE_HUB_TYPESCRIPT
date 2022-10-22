@@ -13,7 +13,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { StyledLinkDefault } from "../../styles/components/links";
 import { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext";
+import { ILoginFormSchema, UserContext } from "../../contexts/UserContext";
 
 export const Login = () => {
 	const { loginFormSchema, apiLogin, toasts } = useContext(UserContext);
@@ -22,7 +22,7 @@ export const Login = () => {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm({
+	} = useForm<ILoginFormSchema>({
 		resolver: yupResolver(loginFormSchema),
 	});
 

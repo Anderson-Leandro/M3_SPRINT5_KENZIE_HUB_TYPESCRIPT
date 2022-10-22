@@ -1,5 +1,5 @@
 import "./App.css";
-import { GlobalStyle } from "./styles/global";
+import { GlobalStyle } from "./styles/global.ts";
 
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Login } from "./pages/Login";

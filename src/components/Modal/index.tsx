@@ -7,21 +7,28 @@ import { StyledInput } from "../../styles/components/inputs";
 import { StyledLabel, StyledTitle3 } from "../../styles/components/typography";
 import { CustomSelect2 } from "../CustomSelect2";
 import { StyledModal } from "./style";
-import { TechContext } from "../../contexts/TechContext";
+import { IModalFormSchema, TechContext } from "../../contexts/TechContext";
 
 export const Modal = () => {
 	const { dropDownController, toasts } = useContext(UserContext);
 
-	const { modalFormSchema, addTech, updateTech, deleteTech } =
-		useContext(TechContext);
+	const {
+		modalFormSchema,
+		addTech,
+		updateTech,
+		deleteTech,
+		modalType,
+		setModal,
+		techInfo,
+	} = useContext(TechContext);
 
-	const { modalType, setModal, techInfo } = useContext(TechContext);
+	// const { modalType, setModal, techInfo } = useContext(TechContext);
 
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm({
+	} = useForm<IModalFormSchema>({
 		resolver: yupResolver(modalFormSchema),
 	});
 
