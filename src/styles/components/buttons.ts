@@ -1,12 +1,16 @@
 import styled, { css } from "styled-components";
 
+interface IColor {
+	color: string;
+}
+
 export const StyledButtonDefault = styled.button`
 	height: 48px;
 	padding: 0px 20px 0px 20px;
 	border-radius: 4px;
 	width: 100%;
 
-	${({ color }) => {
+	${({ color }: IColor) => {
 		if (color === "--color-primary") {
 			return css`
 				color: white;
