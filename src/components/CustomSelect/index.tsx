@@ -1,5 +1,5 @@
 import { StyledSelect } from "./style";
-// import arrow from "../../assets/img/seta.png";
+import arrow from "../../assets/img/seta.png";
 import { ReactNode } from "react";
 
 interface CustomSelectProps {
@@ -16,8 +16,7 @@ export const CustomSelect = ({ children }: CustomSelectProps) => {
 		<StyledSelect>
 			{children}
 
-			{/* <img src={arrow} alt="" />
-				<img src="../../assets/img/seta.png" alt="" /> */}
+			<img src={arrow} alt="" />
 
 			<div className="dropDown displayNone" id="selectDropDown">
 				<div className="dropDownList">
